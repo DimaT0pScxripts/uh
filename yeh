@@ -1,0 +1,63 @@
+
+
+local player = game.Players.LocalPlayer
+local playerGui = player:WaitForChild("PlayerGui")
+
+
+local guiName = "ScreenGui"
+
+
+local existingGui = playerGui:FindFirstChild(guiName)
+if existingGui then
+    return 
+end
+
+
+wait(1)
+		
+		local ScreenGui = Instance.new("ScreenGui")
+		local ImageLabel = Instance.new("ImageLabel")
+		local TextButton = Instance.new("TextButton")
+		local Ring = Instance.new("ImageLabel")
+		local orbitthingy = Ring:Clone()
+	
+		Ring.Name = "Ring"
+		Ring.Parent = ImageLabel
+		Ring.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+		Ring.BackgroundTransparency = 1.000
+		Ring.Position = UDim2.new(0,1,0,1)
+		Ring.Size = UDim2.new(0, 88, 0, 88)
+		Ring.Image = "http://www.roblox.com/asset/?id=7102118272"
+		Ring.SliceScale = 3.000
+	
+		orbitthingy.Parent = Ring
+		orbitthingy.Size = UDim2.new(0,13,0,13)
+		orbitthingy.Position = UDim2.new(0,5,0,11)
+		orbitthingy.Image = "rbxassetid://14475744915"
+		orbitthingy.BackgroundTransparency = 1
+	
+		ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+		ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+		ScreenGui.ResetOnSpawn = false
+	
+		ImageLabel.Parent = ScreenGui
+		ImageLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+		ImageLabel.BackgroundTransparency = 1.000
+		ImageLabel.Position = UDim2.new(-0.127000004, 0, 0.407999992, 0)
+		ImageLabel.Size = UDim2.new(0, 90, 0, 90)
+		ImageLabel.Image = "rbxassetid://6678439471"
+	
+		local img = ImageLabel
+		local btn = TextButton
+		rng = Ring
+		game:GetService("RunService").RenderStepped:Connect(function()
+			wait(0.065)
+			rng.Rotation = rng.Rotation +0.6
+		end)
+		wait(0.6)
+		img:TweenPosition(UDim2.new(0.465, 20, 0.440, 0), "Out", "Linear", 0.3, false)
+		wait(3)
+		img:TweenPosition(UDim2.new(0.01, 0, 0.813, 0), "Out", "Sine", 0.9, false)
+		wait()
+
+
